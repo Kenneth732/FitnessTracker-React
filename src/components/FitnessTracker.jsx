@@ -28,7 +28,21 @@ const FitnessTracker = () => {
       date: new Date().toLocaleDateString()
     };
 
+    const updatedList = [...exerciseList, newExercise];
+    setExerciseList(updatedList);
+    localStorage.setItem('exercise', JSON.stringify(updatedList));
 
+    setExerciseName('');
+    setExerciseDuration('');
+  };
+
+  const handleExerciseNameChange = (e) => {
+    setExerciseName(e.target.value);
+  };
+
+  const handleExerciseDurationChange = (e) => {
+    setExerciseDuration(e.target.value);
+  };
 
   return (
     <div className="fitness-tracker">
